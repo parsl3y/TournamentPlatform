@@ -1,0 +1,24 @@
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.dll
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.pdb
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.dll
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.pdb
+C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.dll
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.pdb
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.dll
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.pdb
+C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\ref\Domain.dll

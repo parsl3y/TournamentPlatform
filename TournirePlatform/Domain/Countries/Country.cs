@@ -13,4 +13,8 @@ public class Country
     }
     public static Country New(CountryId id, string name)
         => new Country(id, name);
+    public void UpdateDetails(string name)
+    {
+        Name = name;
+    }
 }

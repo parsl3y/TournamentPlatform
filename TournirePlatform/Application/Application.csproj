@@ -20,6 +20,7 @@
     <ItemGroup>
       <Folder Include="Countries\Commands\" />
       <Folder Include="Countries\Exception\" />
+      <Folder Include="Country\Extensions\" />
       <Folder Include="Players\Commands\" />
       <Folder Include="Players\Exception\" />
     </ItemGroup>

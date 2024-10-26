@@ -35,5 +35,9 @@ public static class ConfigurePersistence
         services.AddScoped<GameRepository>();
         services.AddScoped<IGameRepositories>(provider => provider.GetRequiredService<GameRepository>());
         services.AddScoped<IGameQueries>(provider => provider.GetRequiredService<GameRepository>());
+        
+        services.AddScoped<CountryRepository>();
+        services.AddScoped<ICountryRepositories>(provider => provider.GetRequiredService<CountryRepository>());
+        services.AddScoped<ICountryQueries>(provider => provider.GetRequiredService<CountryRepository>());
     }
 }

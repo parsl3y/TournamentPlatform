@@ -1,0 +1,8 @@
+{
+  "Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Api",
+  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Application",
+  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Domain",
+  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Infrastructure",
+  "Test.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Test.Data",
+  "Tests.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Tests.Common"
+}
