@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-      "outputPath": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Domain\\obj\\",
+      "outputPath": "C:\\Platform\\TournirePlatform\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

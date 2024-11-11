@@ -34,20 +34,20 @@ public class GamesControllerTests(IntegrationTestWebFactory factory)
         var gameFromResponse = await response.ToResponseModel<GameDto>();
         var gameId = new GameId(gameFromResponse.Id!.Value);
 
-        var facultyFromDataBase = await Context.Games.FirstOrDefaultAsync(x => x.Id == gameId);
-        facultyFromDataBase.Should().NotBeNull();
+        var gameFromDataBase = await Context.Games.FirstOrDefaultAsync(x => x.Id == gameId);
+        gameFromDataBase.Should().NotBeNull();
 
-        facultyFromDataBase!.Name.Should().Be(gameName);
+        gameFromDataBase!.Name.Should().Be(gameName);
     }
 
     [Fact]
     public async Task ShouldUpdatGame()
     {
         // Arrange
-        var newFacultyName = "New Faculty Name";
+        var newGameName = "New Game Name";
         var request = new GameDto(
             Id: _mainGame.Id.Value,
-            Name: newFacultyName);
+            Name: newGameName);
 
         // Act
         var response = await Client.PutAsJsonAsync("Games", request);
@@ -55,14 +55,14 @@ public class GamesControllerTests(IntegrationTestWebFactory factory)
         // Assert
         response.IsSuccessStatusCode.Should().BeTrue();
 
-        var facultyFromResponse = await response.ToResponseModel<GameDto>();
+        var gameFromResponse = await response.ToResponseModel<GameDto>();
 
-        var facultyFromDataBase = await Context.Games
-            .FirstOrDefaultAsync(x => x.Id == new GameId(facultyFromResponse.Id!.Value));
+        var gameyFromDataBase = await Context.Games
+            .FirstOrDefaultAsync(x => x.Id == new GameId(gameFromResponse.Id!.Value));
 
-        facultyFromDataBase.Should().NotBeNull();
+        gameyFromDataBase.Should().NotBeNull();
 
-        facultyFromDataBase!.Name.Should().Be(newFacultyName);
+        gameyFromDataBase!.Name.Should().Be(newGameName);
     }
 
     [Fact]
@@ -87,7 +87,7 @@ public class GamesControllerTests(IntegrationTestWebFactory factory)
         // Arrange
         var request = new GameDto(
             Id: Guid.NewGuid(),
-            Name: "New Faculty Name");
+            Name: "New Game Name");
 
         // Act
         var response = await Client.PutAsJsonAsync("Games", request);

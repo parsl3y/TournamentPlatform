@@ -39,5 +39,10 @@ public static class ConfigurePersistence
         services.AddScoped<CountryRepository>();
         services.AddScoped<ICountryRepositories>(provider => provider.GetRequiredService<CountryRepository>());
         services.AddScoped<ICountryQueries>(provider => provider.GetRequiredService<CountryRepository>());
+        
+        services.AddScoped<PlayerRepository>();
+        services.AddScoped<IPlayerRepositories>(provider => provider.GetRequiredService<PlayerRepository>());
+        services.AddScoped<IPlayerQueries>(provider => provider.GetRequiredService<PlayerRepository>());
+        
     }
 }

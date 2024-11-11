@@ -1,15 +1,15 @@
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.deps.json
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.dll
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.pdb
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.sourcelink.json
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.dll
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\refint\Domain.dll
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.pdb
-C:\React Labs\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\ref\Domain.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.deps.json
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.pdb
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\refint\Domain.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\Domain.pdb
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Domain\obj\Debug\net8.0\ref\Domain.dll
 C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.deps.json
 C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.dll
 C:\ReactLabs\TournamentPlatform\TournirePlatform\Domain\bin\Debug\net8.0\Domain.pdb

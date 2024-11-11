@@ -1,5 +1,6 @@
 using System.Reflection;
 using Application.Common;
+using Application.Common.Interfaces.Queries;
 using Application.Common.Interfaces.Repositories;
 using Application.Games.Exceptions;
 using Domain.Countries;
@@ -16,13 +17,13 @@ public record UpdateGameCommand : IRequest<Result<Game,GameException>>
 }
 
 public class UpdateGameCommandHandler(
-    IGameRepositories gameRepositories) : IRequestHandler<UpdateGameCommand, Result<Game, GameException>>
+    IGameRepositories gameRepositories, IGameQueries gameQueries) : IRequestHandler<UpdateGameCommand, Result<Game, GameException>>
 {
     public async Task<Result<Game, GameException>> Handle(UpdateGameCommand request,
         CancellationToken cancellationToken)
     {
         var gameId = new GameId(request.GameId);
-        var game = await gameRepositories.GetById(gameId, cancellationToken);
+        var game = await gameQueries.GetById(gameId, cancellationToken);
 
         return await game.Match(
             async f =>

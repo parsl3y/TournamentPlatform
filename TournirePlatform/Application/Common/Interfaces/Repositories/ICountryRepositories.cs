@@ -7,8 +7,6 @@ namespace Application.Common.Interfaces.Repositories
     {
         Task<Option<Country>> SearchByName(string name, CancellationToken cancellationToken);
         Task<Country> Add(Country country, CancellationToken cancellationToken);
-        Task<Option<Country>> GetById(CountryId id, CancellationToken cancellationToken);
-        Task<IReadOnlyList<Country>> GetAll(CancellationToken cancellationToken);
         Task<Country> Update(Country country, CancellationToken cancellationToken);
     }
 }

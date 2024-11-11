@@ -26,12 +26,13 @@ public class PlayerConfiguration : IEntityTypeConfiguration<Player>
             .HasForeignKey(x => x.GameId)
             .HasConstraintName("FK_Player_Game")
             .OnDelete(DeleteBehavior.Restrict);
+        
         builder.Property(x => x.Photo)
-            .IsRequired(false)  
-            .HasColumnType("bytea"); 
+            .IsRequired(false)
+            .HasColumnType("bytea");
+
         builder.Property(x => x.UpdatedAt)
-            
             .HasConversion(new DateTimeUtcConverter())
-            .HasDefaultValueSql("timezone('utc', now())"); 
+            .HasDefaultValueSql("timezone('utc', now())");
     }
 }

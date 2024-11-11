@@ -36,6 +36,24 @@ namespace Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "game_image",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    game_id = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_game_image", x => x.id);
+                    table.ForeignKey(
+                        name: "fk_game_images_games_id",
+                        column: x => x.game_id,
+                        principalTable: "games",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "players",
                 columns: table => new
                 {
@@ -65,6 +83,11 @@ namespace Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "ix_game_image_game_id",
+                table: "game_image",
+                column: "game_id");
+
+            migrationBuilder.CreateIndex(
                 name: "ix_players_country_id",
                 table: "players",
                 column: "country_id");
@@ -78,6 +101,9 @@ namespace Infrastructure.Persistence.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "game_image");
+
             migrationBuilder.DropTable(
                 name: "players");
 

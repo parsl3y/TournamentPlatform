@@ -13,12 +13,14 @@ namespace Api.Controllers;
 [ApiController]
 public class GamesControllers(ISender sender, IGameQueries gameQueries) : ControllerBase
 {
+    [Route("GamesList")]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<GameDto>>> GetAllGames(CancellationToken cancellationToken)
     {
         var entities = await gameQueries.GetAll(cancellationToken);
         return entities.Select(GameDto.FromDomainModel).ToList();
     }
+    
     [HttpPost]
     public async Task<ActionResult<GameDto>> Create(
         [FromBody] GameDto request,
@@ -36,6 +38,7 @@ public class GamesControllers(ISender sender, IGameQueries gameQueries) : Contro
             e => e.ToObjectResult());
     }
     [HttpPut]
+    
     public async Task<ActionResult<GameDto>> Update(
         [FromBody] GameDto request,
         CancellationToken cancellationToken)

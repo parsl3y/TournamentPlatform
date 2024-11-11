@@ -1,4 +1,5 @@
 using Domain.Countries;
+using Domain.services;
 
 namespace Domain.Players;
 
@@ -14,19 +15,19 @@ public class Player
     public byte[] Photo { get; set; }
     public DateTime UpdatedAt { get; private set; }
 
-    private Player(PlayerId id, string nickName, int rating, CountryId countryId, GameId gameId, byte[] photo, DateTime updatedAt)
+    public PlayerTeam PlayerTeams { get; private set; }
+    private Player(PlayerId id, string nickName, int rating, CountryId countryId, GameId gameId, DateTime updatedAt)
     {
         Id = id;
         NickName = nickName;
         Rating = rating;
         CountryId = countryId;
         GameId = gameId;
-        Photo = photo;
         UpdatedAt = updatedAt;
     }
 
-    public static Player New(PlayerId id, string nickName, int rating, CountryId countryId, GameId gameId, byte[] photo) 
-        => new(id,nickName,rating,countryId,gameId,photo, DateTime.UtcNow);
+    public static Player New(PlayerId id, string nickName, int rating, CountryId countryId, GameId gameId) 
+        => new(id,nickName,rating,countryId,gameId, DateTime.UtcNow);
 
     public void UpdateDetails(string nickName, int rating, byte[] photo)
     {

@@ -144,14 +144,8 @@
           "Microsoft.Extensions.Configuration.EnvironmentVariables.Reference": "8.0.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions.Reference": "8.0.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0.0",
-          "Microsoft.Extensions.Configuration.Json.Reference": "8.0.0.0",
           "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0.0",
-          "Microsoft.Extensions.Configuration.UserSecrets.Reference": "8.0.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions.Reference": "8.0.0.0",
-          "Microsoft.Extensions.DependencyInjection.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Diagnostics.Abstractions.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Diagnostics.Reference": "8.0.0.0",
           "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "8.0.0.0",
           "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.0.0",
           "Microsoft.Extensions.Features": "8.0.0.0",
@@ -160,20 +154,11 @@
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.0.0",
           "Microsoft.Extensions.FileProviders.Physical.Reference": "8.0.0.0",
           "Microsoft.Extensions.FileSystemGlobbing.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Hosting.Reference": "8.0.0.0",
           "Microsoft.Extensions.Http": "8.0.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.0.0",
           "Microsoft.Extensions.Identity.Stores": "8.0.0.0",
           "Microsoft.Extensions.Localization.Abstractions": "8.0.0.0",
           "Microsoft.Extensions.Localization": "8.0.0.0",
-          "Microsoft.Extensions.Logging.Abstractions.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Logging.Configuration.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Logging.Console.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Logging.Debug.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Logging.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Logging.EventLog.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Logging.EventSource.Reference": "8.0.0.0",
           "Microsoft.Extensions.Logging.TraceSource": "8.0.0.0",
           "Microsoft.Extensions.ObjectPool": "8.0.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions.Reference": "8.0.0.0",
@@ -211,7 +196,6 @@
           "System.Diagnostics.Contracts": "8.0.0.0",
           "System.Diagnostics.Debug": "8.0.0.0",
           "System.Diagnostics.DiagnosticSource": "8.0.0.0",
-          "System.Diagnostics.EventLog.Reference": "8.0.0.0",
           "System.Diagnostics.FileVersionInfo": "8.0.0.0",
           "System.Diagnostics.Process": "8.0.0.0",
           "System.Diagnostics.StackTrace": "8.0.0.0",
@@ -660,6 +644,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Json.dll": {}
         }
       },
       "Microsoft.Extensions.Configuration.UserSecrets/8.0.1": {
@@ -674,6 +661,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/8.0.1": {
@@ -685,6 +675,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
@@ -693,6 +686,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyModel/8.0.2": {
@@ -717,6 +713,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.dll": {}
         }
       },
       "Microsoft.Extensions.Diagnostics.Abstractions/8.0.1": {
@@ -729,6 +728,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.FileProviders.Abstractions/8.0.0": {
@@ -774,6 +776,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Hosting.dll": {}
         }
       },
       "Microsoft.Extensions.Hosting.Abstractions/8.0.1": {
@@ -789,6 +794,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.Logging/8.0.1": {
@@ -802,6 +810,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {}
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/8.0.2": {
@@ -813,6 +824,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.Logging.Configuration/8.0.1": {
@@ -831,6 +845,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Configuration.dll": {}
         }
       },
       "Microsoft.Extensions.Logging.Console/8.0.1": {
@@ -846,6 +863,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Console.dll": {}
         }
       },
       "Microsoft.Extensions.Logging.Debug/8.0.1": {
@@ -859,6 +879,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Debug.dll": {}
         }
       },
       "Microsoft.Extensions.Logging.EventLog/8.0.1": {
@@ -874,6 +897,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.EventLog.dll": {}
         }
       },
       "Microsoft.Extensions.Logging.EventSource/8.0.1": {
@@ -889,6 +915,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.EventSource.dll": {}
         }
       },
       "Microsoft.Extensions.Options/8.0.2": {
@@ -1356,6 +1385,9 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        },
+        "compile": {
+          "lib/net8.0/System.Diagnostics.EventLog.dll": {}
         }
       },
       "System.IO.Pipelines/8.0.0": {},
@@ -2116,51 +2148,15 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Configuration.Json.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Configuration.Json.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.Configuration.KeyPerFile/8.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Configuration.KeyPerFile.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Configuration.UserSecrets.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Configuration.UserSecrets.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.Configuration.Xml/8.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Configuration.Xml.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.DependencyInjection.Abstractions.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.DependencyInjection.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.DependencyInjection.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Diagnostics.Abstractions.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Diagnostics.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Diagnostics.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Diagnostics.dll": {}
         },
         "compileOnly": true
       },
@@ -2212,18 +2208,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Hosting.Abstractions.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Hosting.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Hosting.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Hosting.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.Http/8.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Http.dll": {}
@@ -2251,48 +2235,6 @@
       "Microsoft.Extensions.Localization/8.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Localization.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Logging.Abstractions.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Logging.Configuration.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.Configuration.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Logging.Console.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.Console.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Logging.Debug.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.Debug.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Logging.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Logging.EventLog.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.EventLog.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Logging.EventSource.Reference/8.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.EventSource.dll": {}
         },
         "compileOnly": true
       },
@@ -2515,12 +2457,6 @@
       "System.Diagnostics.DiagnosticSource/8.0.0.0": {
         "compile": {
           "System.Diagnostics.DiagnosticSource.dll": {}
-        },
-        "compileOnly": true
-      },
-      "System.Diagnostics.EventLog.Reference/8.0.0.0": {
-        "compile": {
-          "System.Diagnostics.EventLog.dll": {}
         },
         "compileOnly": true
       },
@@ -4421,42 +4357,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Configuration.Json.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.Extensions.Configuration.KeyPerFile/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Configuration.UserSecrets.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.Extensions.Configuration.Xml/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.DependencyInjection.Abstractions.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.DependencyInjection.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Diagnostics.Abstractions.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Diagnostics.Reference/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -4501,16 +4407,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Hosting.Abstractions.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Hosting.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.Extensions.Http/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -4532,41 +4428,6 @@
       "sha512": ""
     },
     "Microsoft.Extensions.Localization/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.Abstractions.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.Configuration.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.Console.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.Debug.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.EventLog.Reference/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.EventSource.Reference/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -4752,11 +4613,6 @@
       "sha512": ""
     },
     "System.Diagnostics.DiagnosticSource/8.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "System.Diagnostics.EventLog.Reference/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

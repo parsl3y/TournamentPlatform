@@ -39,6 +39,25 @@ namespace Infrastructure.Persistence.Migrations
                     b.ToTable("countries", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Faculties.GameImage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<Guid>("GameId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("game_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_game_image");
+
+                    b.HasIndex("GameId")
+                        .HasDatabaseName("ix_game_image_game_id");
+
+                    b.ToTable("game_image", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Game.Game", b =>
                 {
                     b.Property<Guid>("Id")
@@ -101,6 +120,18 @@ namespace Infrastructure.Persistence.Migrations
                     b.ToTable("players", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Faculties.GameImage", b =>
+                {
+                    b.HasOne("Domain.Game.Game", "Game")
+                        .WithMany("Images")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_game_images_games_id");
+
+                    b.Navigation("Game");
+                });
+
             modelBuilder.Entity("Domain.Players.Player", b =>
                 {
                     b.HasOne("Domain.Countries.Country", "Country")
@@ -120,6 +151,11 @@ namespace Infrastructure.Persistence.Migrations
                     b.Navigation("Country");
 
                     b.Navigation("Game");
+                });
+
+            modelBuilder.Entity("Domain.Game.Game", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

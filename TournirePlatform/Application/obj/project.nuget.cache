@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UVQpXcWmdYc=",
+  "dgSpecHash": "JwTS3faGMEc=",
   "success": true,
-  "projectFilePath": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Platform\\TournirePlatform\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nikit\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.10.0\\fluentvalidation.dependencyinjectionextensions.11.10.0.nupkg.sha512",

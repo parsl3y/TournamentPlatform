@@ -1,19 +1,19 @@
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.deps.json
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.dll
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.pdb
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Domain.dll
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Domain.pdb
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.sourcelink.json
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.dll
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\refint\Application.dll
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.pdb
-C:\React Labs\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\ref\Application.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.deps.json
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.pdb
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Domain.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Domain.pdb
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.sourcelink.json
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\refint\Application.dll
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\Application.pdb
+D:\Programming\TournirePlatformProject\TournamentPlatform\TournirePlatform\Application\obj\Debug\net8.0\ref\Application.dll
 C:\ReactLabs\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.deps.json
 C:\ReactLabs\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.dll
 C:\ReactLabs\TournamentPlatform\TournirePlatform\Application\bin\Debug\net8.0\Application.pdb

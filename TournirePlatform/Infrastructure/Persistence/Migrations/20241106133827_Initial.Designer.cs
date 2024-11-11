@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241024202129_Initial")]
+    [Migration("20241106133827_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -40,6 +40,25 @@ namespace Infrastructure.Persistence.Migrations
                         .HasName("pk_countries");
 
                     b.ToTable("countries", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Faculties.GameImage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<Guid>("GameId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("game_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_game_image");
+
+                    b.HasIndex("GameId")
+                        .HasDatabaseName("ix_game_image_game_id");
+
+                    b.ToTable("game_image", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Game.Game", b =>
@@ -104,6 +123,18 @@ namespace Infrastructure.Persistence.Migrations
                     b.ToTable("players", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Faculties.GameImage", b =>
+                {
+                    b.HasOne("Domain.Game.Game", "Game")
+                        .WithMany("Images")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_game_images_games_id");
+
+                    b.Navigation("Game");
+                });
+
             modelBuilder.Entity("Domain.Players.Player", b =>
                 {
                     b.HasOne("Domain.Countries.Country", "Country")
@@ -123,6 +154,11 @@ namespace Infrastructure.Persistence.Migrations
                     b.Navigation("Country");
 
                     b.Navigation("Game");
+                });
+
+            modelBuilder.Entity("Domain.Game.Game", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,10 +3,12 @@ using Api.Modules.Errors;
 using Application.Common.Interfaces.Queries;
 using Application.Countries.Commands;
 using Application.Games.Commands;
+using Application.Players.Commands;
 using Domain.Countries;
 using EFCore.NamingConventions.Internal;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace Api.Controllers;
 
@@ -37,6 +39,7 @@ public class CountryControllers(ISender sender, ICountryQueries countryQueries) 
             e => e.ToObjectResult());
     }
     [HttpPut]
+    
     public async Task<ActionResult<CountryDto>> Update(
         [FromBody] CountryDto request,
         CancellationToken cancellationToken)
@@ -53,4 +56,6 @@ public class CountryControllers(ISender sender, ICountryQueries countryQueries) 
             c => CountryDto.FromDomainModel(c),
             e => e.ToObjectResult());
     }
+
+
 }

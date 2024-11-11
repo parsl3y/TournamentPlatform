@@ -1,12 +1,15 @@
+using Domain.Countries;
+using Domain.Faculties;
 
 namespace Domain.Game;
-using Domain.Countries;
-
 public class Game
 {
     public GameId Id { get; }
 
     public string Name { get; private set; }
+    //photo додати 
+    public ICollection<GameImage>? Images { get; }
+    public string LogoImagePath => $"faculty-images/{Id}.jpeg";
 
     public Game(GameId id, string name)
     {

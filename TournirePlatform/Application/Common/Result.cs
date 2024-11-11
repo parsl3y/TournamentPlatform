@@ -37,10 +37,6 @@ namespace Application.Common
             return new Result<TValue, TError>(value);
         }
 
-
-        public static object Failure(string courseNotFound)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

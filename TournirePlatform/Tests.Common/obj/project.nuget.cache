@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X6TyHg4Oed0=",
+  "dgSpecHash": "SxnQcvz0vo8=",
   "success": true,
-  "projectFilePath": "C:\\ReactLabs\\TournamentPlatform\\TournirePlatform\\Tests.Common\\Tests.Common.csproj",
+  "projectFilePath": "C:\\Platform\\TournirePlatform\\Tests.Common\\Tests.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nikit\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\docker.dotnet\\3.125.15\\docker.dotnet.3.125.15.nupkg.sha512",

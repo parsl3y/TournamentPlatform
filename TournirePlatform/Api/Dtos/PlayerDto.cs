@@ -14,9 +14,10 @@ public record PlayerDto(
     Guid GameId,
     GameDto? Game,
     byte[] Photo,
-    DateTime UpdateAt
+    DateTime? UpdateAt
 )
 {
+   
 
     public static PlayerDto FromDomainModel(Player player)
         => new

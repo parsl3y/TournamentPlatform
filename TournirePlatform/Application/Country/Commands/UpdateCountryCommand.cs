@@ -1,4 +1,5 @@
 using Application.Common;
+using Application.Common.Interfaces.Queries;
 using Application.Common.Interfaces.Repositories;
 using Application.Countries.Exceptions;
 using Domain.Countries;
@@ -14,13 +15,13 @@ public record UpdateCountryCommand : IRequest<Result<Country, CountryException>>
 }
 
 public class UpdateCountryCommandHandler(
-    ICountryRepositories countryRepositories) : IRequestHandler<UpdateCountryCommand, Result<Country, CountryException>>
+    ICountryRepositories countryRepositories, ICountryQueries countryQueries) : IRequestHandler<UpdateCountryCommand, Result<Country, CountryException>>
 {
     public async Task<Result<Country, CountryException>> Handle(UpdateCountryCommand request,
         CancellationToken cancellationToken)
     {
         var countryId = new CountryId(request.CountryId);
-        var country = await countryRepositories.GetById(countryId, cancellationToken);
+        var country = await countryQueries.GetById(countryId, cancellationToken);
 
         return await country.Match(
             async c =>
