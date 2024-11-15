@@ -11,7 +11,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173") // URL вашого React-додатку
+        policy.WithOrigins("http://localhost:5173") // URL  React
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
@@ -27,7 +27,6 @@ builder.Services.SetupServices();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

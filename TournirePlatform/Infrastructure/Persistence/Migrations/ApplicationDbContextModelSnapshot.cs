@@ -75,6 +75,42 @@ namespace Infrastructure.Persistence.Migrations
                     b.ToTable("games", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Matches.MatchGame", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<Guid>("GameId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("game_id");
+
+                    b.Property<int>("MaxTeams")
+                        .HasColumnType("integer")
+                        .HasColumnName("max_teams");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.Property<DateTime>("StartAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("start_at");
+
+                    b.Property<string>("Winner")
+                        .HasColumnType("text")
+                        .HasColumnName("winner");
+
+                    b.HasKey("Id")
+                        .HasName("pk_matches");
+
+                    b.HasIndex("GameId")
+                        .HasDatabaseName("ix_matches_game_id");
+
+                    b.ToTable("matches", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Players.Player", b =>
                 {
                     b.Property<Guid>("Id")
@@ -102,6 +138,10 @@ namespace Infrastructure.Persistence.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("rating");
 
+                    b.Property<Guid>("TeamId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("team_id");
+
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
@@ -117,7 +157,82 @@ namespace Infrastructure.Persistence.Migrations
                     b.HasIndex("GameId")
                         .HasDatabaseName("ix_players_game_id");
 
+                    b.HasIndex("TeamId")
+                        .HasDatabaseName("ix_players_team_id");
+
                     b.ToTable("players", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.TeamMatches.TeamMatch", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<bool>("IsWinner")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_winner");
+
+                    b.Property<Guid>("MatchId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("match_id");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("integer")
+                        .HasColumnName("score");
+
+                    b.Property<Guid>("TeamId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("team_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_team_matches");
+
+                    b.HasIndex("MatchId")
+                        .HasDatabaseName("ix_team_matches_match_id");
+
+                    b.HasIndex("TeamId")
+                        .HasDatabaseName("ix_team_matches_team_id");
+
+                    b.ToTable("team_matches", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Teams.Team", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("creation_date");
+
+                    b.Property<byte[]>("Icon")
+                        .HasColumnType("bytea")
+                        .HasColumnName("icon");
+
+                    b.Property<int>("MatchCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("match_count");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(225)")
+                        .HasColumnName("name");
+
+                    b.Property<int>("WinCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("win_count");
+
+                    b.Property<double>("WinRate")
+                        .HasColumnType("double precision")
+                        .HasColumnName("win_rate");
+
+                    b.HasKey("Id")
+                        .HasName("pk_teams");
+
+                    b.ToTable("teams", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Faculties.GameImage", b =>
@@ -128,6 +243,18 @@ namespace Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_game_images_games_id");
+
+                    b.Navigation("Game");
+                });
+
+            modelBuilder.Entity("Domain.Matches.MatchGame", b =>
+                {
+                    b.HasOne("Domain.Game.Game", "Game")
+                        .WithMany()
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_Player_Game");
 
                     b.Navigation("Game");
                 });
@@ -148,14 +275,56 @@ namespace Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasConstraintName("FK_Player_Game");
 
+                    b.HasOne("Domain.Teams.Team", "Team")
+                        .WithMany("PlayerTeams")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_Player_Team");
+
                     b.Navigation("Country");
 
                     b.Navigation("Game");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("Domain.TeamMatches.TeamMatch", b =>
+                {
+                    b.HasOne("Domain.Matches.MatchGame", "MatchGame")
+                        .WithMany("TeamMatches")
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_team_matches_matches_match_id");
+
+                    b.HasOne("Domain.Teams.Team", "Team")
+                        .WithMany("TeamMatches")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_team_matches_teams_team_id");
+
+                    b.Navigation("MatchGame");
+
+                    b.Navigation("Team");
                 });
 
             modelBuilder.Entity("Domain.Game.Game", b =>
                 {
                     b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("Domain.Matches.MatchGame", b =>
+                {
+                    b.Navigation("TeamMatches");
+                });
+
+            modelBuilder.Entity("Domain.Teams.Team", b =>
+                {
+                    b.Navigation("PlayerTeams");
+
+                    b.Navigation("TeamMatches");
                 });
 #pragma warning restore 612, 618
         }

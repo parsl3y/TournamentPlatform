@@ -1,5 +1,6 @@
 using Domain.Countries;
 using Domain.Players;
+using Domain.Teams;
 
 namespace Application.Players.Exceptions;
 
@@ -37,7 +38,11 @@ public class PlayerException : Exception
         public PlayerGameNotFoundException(GameId gameId)
             :base(PlayerId.Empty(), $"Game with id {gameId} was not found.") { }
     }
-
+    public class PlayerTeamNotFoundException : PlayerException
+    {
+        public PlayerTeamNotFoundException(TeamId teamId)
+            :base(PlayerId.Empty(), $"Game with id {teamId} was not found.") { }
+    }
     public class PlayerUknownException : PlayerException
     {
         public PlayerUknownException(PlayerId id, Exception? innerException)

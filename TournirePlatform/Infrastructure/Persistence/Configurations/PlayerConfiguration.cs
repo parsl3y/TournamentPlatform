@@ -27,6 +27,12 @@ public class PlayerConfiguration : IEntityTypeConfiguration<Player>
             .HasConstraintName("FK_Player_Game")
             .OnDelete(DeleteBehavior.Restrict);
         
+        builder.HasOne(x => x.Team)
+            .WithMany()
+            .HasForeignKey(x => x.TeamId)
+            .HasConstraintName("FK_Player_Team")
+            .OnDelete(DeleteBehavior.Restrict);
+
         builder.Property(x => x.Photo)
             .IsRequired(false)
             .HasColumnType("bytea");
@@ -34,5 +40,7 @@ public class PlayerConfiguration : IEntityTypeConfiguration<Player>
         builder.Property(x => x.UpdatedAt)
             .HasConversion(new DateTimeUtcConverter())
             .HasDefaultValueSql("timezone('utc', now())");
+        
+        
     }
 }

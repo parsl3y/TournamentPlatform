@@ -37,8 +37,8 @@ public class GamesControllers(ISender sender, IGameQueries gameQueries) : Contro
             f => GameDto.FromDomainModel(f),
             e => e.ToObjectResult());
     }
-    [HttpPut]
     
+    [HttpPut]
     public async Task<ActionResult<GameDto>> Update(
         [FromBody] GameDto request,
         CancellationToken cancellationToken)

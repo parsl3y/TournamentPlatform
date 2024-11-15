@@ -35,7 +35,7 @@ public class CreateGameCommandHandler(
         }
         catch (Exception e)
         {
-            return new GameUknownException(GameId.Empty, e);
+            return new GameUknownException(GameId.Empty(), e);
         }
     }
 }

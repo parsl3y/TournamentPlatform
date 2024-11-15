@@ -43,6 +43,13 @@ public static class ConfigurePersistence
         services.AddScoped<PlayerRepository>();
         services.AddScoped<IPlayerRepositories>(provider => provider.GetRequiredService<PlayerRepository>());
         services.AddScoped<IPlayerQueries>(provider => provider.GetRequiredService<PlayerRepository>());
+
+        services.AddScoped<TeamRepository>();
+        services.AddScoped<ITeamRepository>(provider => provider.GetRequiredService<TeamRepository>());
+        services.AddScoped<ITeamQuery>(provider => provider.GetRequiredService<TeamRepository>());
         
+        services.AddScoped<MatchRepository>();
+        services.AddScoped<IMatchRepository>(provider => provider.GetRequiredService<MatchRepository>());
+        services.AddScoped<IMatchQueries>(provider => provider.GetRequiredService<MatchRepository>());
     }
 }

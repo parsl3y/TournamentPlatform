@@ -3,8 +3,10 @@ using Api.Dtos;
 using Domain.Countries;
 using Domain.Game;
 using Domain.Players;
+using Domain.Teams;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
+using Renci.SshNet;
 using Test.Data;
 using Tests.Common;
 using Xunit;
@@ -15,11 +17,12 @@ public class PlayersControllerTests : BaseIntegrationTest, IAsyncLifetime
 {
     private readonly Country _mainCountry = CountryData.MainCountry;
     private readonly Game _mainGame = GamesData.MainGame;
+    private readonly Team _mainTeam = TeamData.MainTeam;
     private readonly Player _mainPlayer;
 
     public PlayersControllerTests(IntegrationTestWebFactory factory) : base(factory)
     {
-        _mainPlayer = PlayerData.MainPlayer(_mainCountry.Id, _mainGame.Id);
+        _mainPlayer = PlayerData.MainPlayer(_mainCountry.Id, _mainGame.Id, _mainTeam.Id);
     }
 
     [Fact]
@@ -36,6 +39,8 @@ public class PlayersControllerTests : BaseIntegrationTest, IAsyncLifetime
             CountryId: _mainCountry.Id.Value,
             Game: null,
             GameId: _mainGame.Id.Value,
+            Team: null,
+            TeamId: _mainTeam.Id.Value,
             Photo: null,
             UpdateAt: null);
 
@@ -68,6 +73,8 @@ public class PlayersControllerTests : BaseIntegrationTest, IAsyncLifetime
             CountryId: _mainCountry.Id.Value,
             Game: null,
             GameId: _mainGame.Id.Value,
+            Team: null,
+            TeamId: _mainTeam.Id.Value,
             Photo: null,
             UpdateAt: null);
 

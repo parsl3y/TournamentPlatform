@@ -13,14 +13,12 @@ namespace Api.Controllers;
 public class PlayerController : ControllerBase
 {
     private readonly ISender _sender;
-    private readonly IPlayerRepositories _playerRepositories;
     private readonly IPlayerQueries _playerQueries;
 
-    public PlayerController(ISender sender, IPlayerRepositories playerRepositories, IPlayerQueries playerQueries)
+    public PlayerController(ISender sender, IPlayerQueries playerQueries)
     {
-        this._sender = sender;
-        this._playerRepositories = playerRepositories;
-        this._playerQueries = playerQueries;
+        _sender = sender;
+        _playerQueries = playerQueries;
     }
 
     [HttpGet]
@@ -31,7 +29,7 @@ public class PlayerController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<PlayerDto>> Create([FromBody] PlayerDto request, CancellationToken cancellationToken)
+    public async Task<ActionResult<PlayerDto>> Create([FromBody] PlayerCreateDto request, CancellationToken cancellationToken)
     {
         var input = new CreatePlayerCommand
         {
@@ -39,6 +37,7 @@ public class PlayerController : ControllerBase
             Rating = request .rating,
             GameId = request.GameId,
             CountryId = request.CountryId,
+            TeamId = request.TeamId
         };
         
         var result = await _sender.Send(input, cancellationToken);

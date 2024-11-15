@@ -2,7 +2,6 @@
 using System.Net.Http.Json;
 using Api.Dtos;
 using Domain.Countries;
-using Domain.Game;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Test.Data;

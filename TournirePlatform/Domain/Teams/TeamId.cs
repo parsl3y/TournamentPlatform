@@ -1,4 +1,4 @@
-namespace Domain.Players;
+namespace Domain.Teams;
 
 public record TeamId(Guid Value)
 {

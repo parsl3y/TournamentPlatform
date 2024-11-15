@@ -1,40 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Platform\\TournirePlatform\\Infrastructure\\Infrastructure.csproj": {}
+    "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Platform\\TournirePlatform\\Application\\Application.csproj": {
+    "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Platform\\TournirePlatform\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Platform\\TournirePlatform\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-        "outputPath": "C:\\Platform\\TournirePlatform\\Application\\obj\\",
+        "projectPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Burch\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Burch\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj"
+              "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj"
               }
             }
           }
@@ -87,33 +80,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj": {
+    "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-        "outputPath": "C:\\Platform\\TournirePlatform\\Domain\\obj\\",
+        "projectPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Burch\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Burch\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -152,44 +138,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Platform\\TournirePlatform\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Platform\\TournirePlatform\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Platform\\TournirePlatform\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-        "outputPath": "C:\\Platform\\TournirePlatform\\Infrastructure\\obj\\",
+        "projectPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Burch\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Burch\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Platform\\TournirePlatform\\Application\\Application.csproj": {
-                "projectPath": "C:\\Platform\\TournirePlatform\\Application\\Application.csproj"
+              "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Application\\Application.csproj": {
+                "projectPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Application\\Application.csproj"
               },
-              "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Platform\\TournirePlatform\\Domain\\Domain.csproj"
+              "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain\\Domain.csproj"
               }
             }
           }
@@ -238,7 +217,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

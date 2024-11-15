@@ -1,8 +1,8 @@
 {
-  "Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\TournirePlatformProject\\TournamentPlatform\\TournirePlatform\\Api",
-  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\TournirePlatformProject\\TournamentPlatform\\TournirePlatform\\Application",
-  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\TournirePlatformProject\\TournamentPlatform\\TournirePlatform\\Domain",
-  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\TournirePlatformProject\\TournamentPlatform\\TournirePlatform\\Infrastructure",
-  "Test.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\TournirePlatformProject\\TournamentPlatform\\TournirePlatform\\Test.Data",
-  "Tests.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\TournirePlatformProject\\TournamentPlatform\\TournirePlatform\\Tests.Common"
+  "Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Api",
+  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Application",
+  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Domain",
+  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Infrastructure",
+  "Test.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Test.Data",
+  "Tests.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\project\\TournamentPlatform\\TournirePlatform\\Tests.Common"
 }

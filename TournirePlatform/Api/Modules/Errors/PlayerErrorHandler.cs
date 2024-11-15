@@ -16,6 +16,7 @@ public static class PlayerErrorHandler
                 PlayerUknownException => StatusCodes.Status500InternalServerError,
                 PlayerCountryNotFoundException => StatusCodes.Status404NotFound,
                 PlayerGameNotFoundException => StatusCodes.Status404NotFound,
+                PlayerTeamNotFoundException => StatusCodes.Status404NotFound,
                 _ => throw new NotImplementedException("Player error handler does not implemented")
             }
         };
