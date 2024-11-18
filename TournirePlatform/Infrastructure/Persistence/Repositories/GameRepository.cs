@@ -47,4 +47,12 @@ public class GameRepository(ApplicationDbContext context) : IGameRepositories, I
 
         return game;
     }
+    public async Task<Game> Delete(Game game, CancellationToken cancellationToken)
+    {
+        context.Games.Remove(game);
+
+        await context.SaveChangesAsync(cancellationToken);
+
+        return game;
+    }
 }

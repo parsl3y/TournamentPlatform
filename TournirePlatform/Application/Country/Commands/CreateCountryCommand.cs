@@ -34,7 +34,7 @@ public class CreateCountryCommandHandler(
         }
         catch (Exception e)
         {
-            return new CountryUnknownException(CountryId.Empty, e);
+            return new CountryUnknownException(CountryId.Empty(), e);
         }
     }
 }

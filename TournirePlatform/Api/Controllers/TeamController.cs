@@ -32,8 +32,7 @@ public class TeamController(ISender sender, ITeamQuery teamQuery) : ControllerBa
             Name = request.Name,
             MatchCount = request.MatchCount,
             WinCount = request.WinCount,
-            CreationDate = DateTime.UtcNow
-            
+            CreationDate = DateTime.UtcNow.Date
         };
         
         var result = await sender.Send(input, cancellationToken);

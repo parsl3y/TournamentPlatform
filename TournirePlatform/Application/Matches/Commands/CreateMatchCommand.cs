@@ -18,6 +18,7 @@ public class CreateMatchCommand :  IRequest<Result<MatchGame, MatchException>>
     public required Guid GameId { get; set; }
     public required DateTime StartAt { get; set; }
     public required int MaxTeams { get; set; }
+    public Guid TournamentId { get; set; }
 }
 
 public class CreateMatchCommandHandler(

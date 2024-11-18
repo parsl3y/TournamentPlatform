@@ -34,7 +34,7 @@ public class PlayerController : ControllerBase
         var input = new CreatePlayerCommand
         {
             NickName = request.Nickname,
-            Rating = request .rating,
+            Rating = request.rating,
             GameId = request.GameId,
             CountryId = request.CountryId,
             TeamId = request.TeamId

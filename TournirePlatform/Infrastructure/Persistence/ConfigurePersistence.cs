@@ -51,5 +51,12 @@ public static class ConfigurePersistence
         services.AddScoped<MatchRepository>();
         services.AddScoped<IMatchRepository>(provider => provider.GetRequiredService<MatchRepository>());
         services.AddScoped<IMatchQueries>(provider => provider.GetRequiredService<MatchRepository>());
+
+        services.AddScoped<TeamMatchRepository>();
+        services.AddScoped<ITeamMatchRepository>(provider => provider.GetRequiredService<TeamMatchRepository>());
+
+        services.AddScoped<TournamentRepository>();
+        services.AddScoped<ITournamentRepository>(provider => provider.GetRequiredService<TournamentRepository>());
+        services.AddScoped<ITournamentQueries>(provider => provider.GetRequiredService<TournamentRepository>());
     }
 }

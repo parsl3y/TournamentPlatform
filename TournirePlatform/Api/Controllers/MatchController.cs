@@ -33,6 +33,7 @@ public class MatchController(ISender sender, IMatchQueries matchQueries) : Contr
             GameId = request.GameId,
             StartAt = DateTime.UtcNow,
             MaxTeams = request.MaxTeams,
+            TournamentId = request.TournamentId,
         };
         
         var result = await sender.Send(input, cancellationToken);

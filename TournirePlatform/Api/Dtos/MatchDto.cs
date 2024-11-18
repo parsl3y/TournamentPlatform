@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using Domain.Matches;
+using Domain.TeamsMatch;
 
 namespace Api.Dtos;
 
@@ -9,7 +10,8 @@ public record MatchGameDtoCreate(
     Guid GameId,
     GameDto? Game,
     DateTime StartedAt,
-    int MaxTeams
+    int MaxTeams,
+    Guid TournamentId
     )
 {
     public static MatchGameDtoCreate FromDomainModel(MatchGame matchGame)
@@ -20,14 +22,14 @@ public record MatchGameDtoCreate(
             GameId: matchGame.GameId.Value,
             Game: matchGame.Game == null ? null : GameDto.FromDomainModel(matchGame.Game),
             StartedAt: matchGame.StartAt,
-            MaxTeams: matchGame.MaxTeams
+            MaxTeams: matchGame.MaxTeams,
+            TournamentId: matchGame.TournamentId.Value
         );
 }
 
 public record MatchGameDto(
-    string Name,
+    string Name, // лише name залишити
     Guid GameId,
-    GameDto? Game,
     DateTime StartedAt,
     int MaxTeams
 )
@@ -37,8 +39,21 @@ public record MatchGameDto(
         (
             Name: matchGame.Name,
             GameId: matchGame.GameId.Value,
-            Game: matchGame.Game == null ? null : GameDto.FromDomainModel(matchGame.Game),
             StartedAt: matchGame.StartAt,
             MaxTeams: matchGame.MaxTeams
+        );
+}
+
+public record MatchGameDtoInTeam(
+    string Name,
+    List<TeamMatchDto>  Teams
+)
+{
+    public static MatchGameDtoInTeam FromDomainModel(MatchGame matchGame)
+        => new
+        (
+            Name: matchGame.Name,
+            Teams: matchGame.TeamMatches.Select(TeamMatchDto.FromDomainModel).ToList()
+            
         );
 }

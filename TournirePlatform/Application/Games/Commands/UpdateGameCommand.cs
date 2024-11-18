@@ -63,4 +63,6 @@ private async Task<Option<Game>> CheckDuplicated(
     return game.Match(
         g => g.Id == gameId ? Option.None<Game>() : Option.Some(g),
         Option.None<Game>);
-}}
+}
+
+}

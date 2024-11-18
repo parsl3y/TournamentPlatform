@@ -9,8 +9,6 @@ namespace Infrastructure.Persistence.Repositories;
 
 public class PlayerRepository(ApplicationDbContext context) : IPlayerQueries, IPlayerRepositories
 {
-
-
     public async Task<Option<Player>> GetById(PlayerId id, CancellationToken cancellationToken)
     {
         var entity = await context.Players

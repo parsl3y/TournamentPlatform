@@ -24,6 +24,18 @@ namespace Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "formats",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    name = table.Column<string>(type: "varchar(50)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_formats", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "games",
                 columns: table => new
                 {
@@ -71,21 +83,28 @@ namespace Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "matches",
+                name: "tournaments",
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
-                    name = table.Column<string>(type: "text", nullable: false),
+                    name = table.Column<string>(type: "character varying(225)", maxLength: 225, nullable: false),
+                    start_date = table.Column<DateTime>(type: "date", nullable: false),
+                    country_id = table.Column<Guid>(type: "uuid", nullable: false),
                     game_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    start_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    winner = table.Column<string>(type: "text", nullable: true),
-                    max_teams = table.Column<int>(type: "integer", nullable: false)
+                    prize_pool = table.Column<int>(type: "integer", nullable: false),
+                    format_tournament = table.Column<string>(type: "character varying(225)", maxLength: 225, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_matches", x => x.id);
+                    table.PrimaryKey("pk_tournaments", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Player_Game",
+                        name: "FK_Tournament_Country",
+                        column: x => x.country_id,
+                        principalTable: "countries",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Tournament_Game",
                         column: x => x.game_id,
                         principalTable: "games",
                         principalColumn: "id",
@@ -129,6 +148,34 @@ namespace Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "matches",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    name = table.Column<string>(type: "text", nullable: false),
+                    game_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    start_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    winner = table.Column<string>(type: "text", nullable: true),
+                    max_teams = table.Column<int>(type: "integer", nullable: false),
+                    tournament_id = table.Column<Guid>(type: "uuid", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_matches", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Player_Game",
+                        column: x => x.game_id,
+                        principalTable: "games",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "fk_matches_tournaments_tournament_id",
+                        column: x => x.tournament_id,
+                        principalTable: "tournaments",
+                        principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "team_matches",
                 columns: table => new
                 {
@@ -166,6 +213,11 @@ namespace Infrastructure.Persistence.Migrations
                 column: "game_id");
 
             migrationBuilder.CreateIndex(
+                name: "ix_matches_tournament_id",
+                table: "matches",
+                column: "tournament_id");
+
+            migrationBuilder.CreateIndex(
                 name: "ix_players_country_id",
                 table: "players",
                 column: "country_id");
@@ -189,11 +241,24 @@ namespace Infrastructure.Persistence.Migrations
                 name: "ix_team_matches_team_id",
                 table: "team_matches",
                 column: "team_id");
+
+            migrationBuilder.CreateIndex(
+                name: "ix_tournaments_country_id",
+                table: "tournaments",
+                column: "country_id");
+
+            migrationBuilder.CreateIndex(
+                name: "ix_tournaments_game_id",
+                table: "tournaments",
+                column: "game_id");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "formats");
+
             migrationBuilder.DropTable(
                 name: "game_image");
 
@@ -204,13 +269,16 @@ namespace Infrastructure.Persistence.Migrations
                 name: "team_matches");
 
             migrationBuilder.DropTable(
-                name: "countries");
-
-            migrationBuilder.DropTable(
                 name: "matches");
 
             migrationBuilder.DropTable(
                 name: "teams");
+
+            migrationBuilder.DropTable(
+                name: "tournaments");
+
+            migrationBuilder.DropTable(
+                name: "countries");
 
             migrationBuilder.DropTable(
                 name: "games");

@@ -6,6 +6,8 @@ using Domain.Players;
 
 using Domain.TeamsMatch;
 using Domain.Teams;
+using Domain.TournamentFormat;
+using Domain.Tournaments;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence;
@@ -18,8 +20,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Team> Teams { get; set; }
     public DbSet<MatchGame> Matches { get; set; }
     public DbSet<TeamMatch> TeamMatches { get; set; }
-    
-
+    public DbSet<Tournament> Tournaments { get; set; }
+    public DbSet<Format> Formats { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

@@ -19,8 +19,6 @@ public record PlayerDto(
     TeamDto? Team
 )
 {
-
-
     public static PlayerDto FromDomainModel(Player player)
         => new
     (

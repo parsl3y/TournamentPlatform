@@ -46,4 +46,13 @@ public class CountryRepository(ApplicationDbContext context) : ICountryRepositor
         await context.SaveChangesAsync(cancellationToken);
         return country;
     }
+    
+    public async Task<Country> Delete(Country country, CancellationToken cancellationToken)
+    {
+        context.Countries.Remove(country);
+
+        await context.SaveChangesAsync(cancellationToken);
+
+        return country;
+    }
 }

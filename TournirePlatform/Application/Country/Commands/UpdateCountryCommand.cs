@@ -42,7 +42,7 @@ public class UpdateCountryCommandHandler(
     {
         try
         {
-            country.UpdateDetails(name); // Метод для оновлення властивостей країни (повинен існувати в класі Country)
+            country.UpdateDetails(name);
             return await countryRepositories.Update(country, cancellationToken);
         }
         catch (Exception exception)

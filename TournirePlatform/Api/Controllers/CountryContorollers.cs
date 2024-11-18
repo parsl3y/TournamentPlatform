@@ -22,6 +22,7 @@ public class CountryControllers(ISender sender, ICountryQueries countryQueries) 
         var entities = await countryQueries.GetAll(cancellationToken);
         return entities.Select(CountryDto.FromDomainModel).ToList();
     }
+    
     [HttpPost]
     public async Task<ActionResult<CountryDto>> Create(
         [FromBody] CountryDto request,
@@ -38,8 +39,8 @@ public class CountryControllers(ISender sender, ICountryQueries countryQueries) 
             c => CountryDto.FromDomainModel(c),
             e => e.ToObjectResult());
     }
-    [HttpPut]
     
+    [HttpPut]
     public async Task<ActionResult<CountryDto>> Update(
         [FromBody] CountryDto request,
         CancellationToken cancellationToken)
