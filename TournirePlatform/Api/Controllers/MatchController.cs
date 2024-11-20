@@ -1,12 +1,9 @@
-using System.Text.RegularExpressions;
 using Api.Dtos;
 using Api.Modules.Errors;
 using Application.Common.Interfaces.Queries;
 using Application.Matches.Commands;
-using Domain.Matches;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api.Controllers;
 
@@ -33,14 +30,31 @@ public class MatchController(ISender sender, IMatchQueries matchQueries) : Contr
             GameId = request.GameId,
             StartAt = DateTime.UtcNow,
             MaxTeams = request.MaxTeams,
-            TournamentId = request.TournamentId,
+            scoreForGetWinner = request.ScoreForGetWinner,
+            TournamentId = request.TournamentId, 
         };
         
         var result = await sender.Send(input, cancellationToken);
         return result.Match<ActionResult<MatchGameDto>>(
             mg => MatchGameDto.FromDomainModel(mg),
             e => e.ToObjectResult());
+    }
+    
+    
+    [HttpPatch("{matchId:guid}/RemoveTournament")] // це як пут,але тільки одне поле змінити
+    public async Task<IActionResult> RemoveTournamentFromMatch(
+        Guid matchId,
+        CancellationToken cancellationToken)
+    {
+        var command = new RemoveTournamentFromMatchCommand
+        {
+            MatchId = matchId
+        };
 
+        var result = await sender.Send(command, cancellationToken);
 
+        return result.Match<IActionResult>(
+            match => Ok(MatchGameClearTournamentDto.FromDomainModel(match)),
+            error => error.ToObjectResult());
     }
 }

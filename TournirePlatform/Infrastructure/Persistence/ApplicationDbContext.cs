@@ -4,7 +4,7 @@ using Domain.Game;
 using Domain.Matches;
 using Domain.Players;
 
-using Domain.TeamsMatch;
+using Domain.TeamsMatchs;
 using Domain.Teams;
 using Domain.TournamentFormat;
 using Domain.Tournaments;

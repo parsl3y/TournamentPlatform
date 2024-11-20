@@ -1,6 +1,6 @@
 using Domain.Players;
 using Domain.Teams;
-using Domain.TeamsMatch;
+using Domain.TeamsMatchs;
 
 namespace Api.Dtos;
 
@@ -28,14 +28,14 @@ public class TeamMatchDto
     public Guid TeamId { get; set; }
     public string Team { get; set; }
     public int Score { get; set; }
-    public bool IsWinner { get; set; }
+    public bool? IsWinner { get; set; }
     public List<PlayerInTeamDto> Players { get; set; }
 
-    public TeamMatchDto(string team, int score, bool isWinner, List<PlayerInTeamDto> players)
+    public TeamMatchDto(string team, int score, bool? isWinner, List<PlayerInTeamDto> players)
     {
         Team = team;
         Score = score;
-        IsWinner = isWinner;
+        IsWinner = null;
         Players = players;
     }
 
@@ -48,3 +48,17 @@ public class TeamMatchDto
                 teamMatch.Team.PlayerTeams.Select(PlayerInTeamDto.FromDomainModel).ToList()
             );
 }
+
+public class TeamMatchDeleteDto
+{
+    public Guid TeamId { get; set; }
+
+    public static TeamMatchDeleteDto FromDomainModel(TeamMatch teamMatch)
+    {
+        return new TeamMatchDeleteDto
+        {
+            TeamId = teamMatch.TeamId.Value
+        };
+    }
+}
+

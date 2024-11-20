@@ -14,6 +14,8 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::64ACECF1-8D01-4D2D-80BA-D50201CC9DE8::net8.0::Api.Tests.Integration.Games.CountriesControllerTests.ShouldCreateCountry&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::64ACECF1-8D01-4D2D-80BA-D50201CC9DE8::net8.0::Api.Tests.Integration.Players.PlayersControllerTests.ShouldNotCreatePlayerBecauseRatingNull&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::64ACECF1-8D01-4D2D-80BA-D50201CC9DE8::net8.0::Api.Tests.Integration.Players.PlayersControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::64ACECF1-8D01-4D2D-80BA-D50201CC9DE8::net8.0::Api.Tests.Integration.Games.CountriesControllerTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	

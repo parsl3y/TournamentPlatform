@@ -55,4 +55,18 @@ public class GamesControllers(ISender sender, IGameQueries gameQueries) : Contro
             f => GameDto.FromDomainModel(f),
             e => e.ToObjectResult());
     }
+    
+    [HttpDelete("{gameId}")]
+    public async Task<ActionResult<GameDto>> Delete([FromRoute] Guid gameId, CancellationToken cancellationToken)
+    {
+        var input = new DeleteGameCommand()
+        {
+            GameId = gameId
+        };
+        
+        var result = await sender.Send(input, cancellationToken);
+        return result.Match<ActionResult<GameDto>>(
+            p => GameDto.FromDomainModel(p),
+            e => e.ToObjectResult());
+    }
 }

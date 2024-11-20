@@ -1,5 +1,6 @@
 using Domain.Countries;
 using Domain.Matches;
+using Domain.Tournaments;
 
 namespace Application.Matches.Exceptions;
 
@@ -37,8 +38,24 @@ public class MatchUknownException : MatchException
         public MatchGameNotFoundException(GameId gameId)
             :base(MatchId.Empty(), $"Game with id {gameId} was not found.") { }
     }
+
+   public class MatchTournamentNotFoundException : MatchException
+   {
+       public MatchTournamentNotFoundException(TournamentId tournamentId)
+           :base(MatchId.Empty(), $"Tournament with id {tournamentId} was not found.") { }
+   }
 public class MatchCannotBeDeletedException : MatchException
 {
     public MatchCannotBeDeletedException(MatchId id)
         :base(id: id, $"Match {id} cannot be deleted because it has registered teams.") {}
 }
+
+public class MatchWasFinishedException : MatchException
+{
+    public MatchWasFinishedException(MatchId matchId)
+        : base(matchId,$"Match with ID {matchId} finished.")
+    {
+    }
+}
+
+

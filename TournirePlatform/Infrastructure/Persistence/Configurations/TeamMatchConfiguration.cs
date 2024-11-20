@@ -1,6 +1,6 @@
 using System.Security.Cryptography.X509Certificates;
 using Domain.Matches;
-using Domain.TeamsMatch;
+using Domain.TeamsMatchs;
 using Domain.Teams;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -12,6 +12,7 @@ public class TeamMatchConfiguration : IEntityTypeConfiguration<TeamMatch>
     public void Configure(EntityTypeBuilder<TeamMatch> builder)
     {
         builder. HasKey(x => x.Id);
+        builder.Property(x => x.Id).HasConversion(x => x.Value, x => new TeamMatchId(x)).IsRequired();   
         builder.Property(x => x.TeamId).HasConversion(x => x.Value, x => new TeamId(x)).IsRequired();
         builder.Property(x => x.MatchId).HasConversion(x => x.Value, x => new MatchId(x)).IsRequired();
         builder.Property(x => x.Score).IsRequired();

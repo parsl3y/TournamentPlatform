@@ -18,6 +18,12 @@ public class MatchConfiguration : IEntityTypeConfiguration<MatchGame>
             .HasConstraintName("FK_Player_Game")
             .OnDelete(DeleteBehavior.Restrict);
 
+        builder.HasOne(x => x.Tournament)
+            .WithMany()
+            .HasForeignKey(x => x.TournamentId)
+            .HasConstraintName("FK_Player_Tournament")
+            .OnDelete(DeleteBehavior.Restrict);
+        
         builder.Property(x => x.StartAt).IsRequired();
         builder.Property(x => x.MaxTeams).IsRequired();
 

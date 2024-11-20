@@ -1,5 +1,6 @@
 using Domain.Countries;
 using Domain.Game;
+using Domain.TournamentFormat;
 using Domain.Tournaments;
 
 namespace Application.Tournaments.Exceptions;
@@ -24,4 +25,7 @@ public abstract class TournamentException(TournamentId id, string message, Excep
 
    public class TournamentGameNotFoundException(GameId gameId)
        : TournamentException(TournamentId.Empty(), $"PlayerCountry {gameId} found"); 
+
+   public class TournamentFormatNotFoundException(FormatId formatId)
+       : TournamentException(TournamentId.Empty(), $"PlayerCountry {formatId} found"); 
    

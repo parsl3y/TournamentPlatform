@@ -16,6 +16,7 @@ public static class TournamentErrorHandler
                 TournamentUnknownException => StatusCodes.Status400BadRequest,
                 TournamentGameNotFoundException => StatusCodes.Status404NotFound,
                 TournamentCountryNotFoundException =>   StatusCodes.Status404NotFound,
+                TournamentFormatNotFoundException => StatusCodes.Status404NotFound,
                 _ => throw new NotImplementedException("Tournament error handler does not implemented")
 
             }

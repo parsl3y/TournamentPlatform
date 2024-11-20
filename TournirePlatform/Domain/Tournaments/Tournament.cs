@@ -1,6 +1,7 @@
 using Domain.Countries;
 using Domain.Matches;
 using Domain.Teams;
+using Domain.TournamentFormat;
 
 namespace Domain.Tournaments;
 
@@ -15,9 +16,10 @@ public class Tournament
     public Game.Game Game { get; private set; }
     public int PrizePool { get; set; }
     public ICollection<MatchGame> matchGames { get; private set; } = [];
-    public string FormatTournament { get; private set; } //Online or Ofline
+    public FormatId FormatTournamentId { get; private set; }
+    public Format FormatTournament { get; private set; } //Online or Ofline
 
-    public Tournament(TournamentId id, string name, DateTime startDate, CountryId countryId, GameId gameId,int prizePool,string formatTournament)
+    public Tournament(TournamentId id, string name, DateTime startDate, CountryId countryId, GameId gameId,int prizePool,FormatId formatTournamentId)
     {
         Id = id;
         Name = name;
@@ -25,17 +27,17 @@ public class Tournament
         CountryId = countryId;
         GameId = gameId;
         PrizePool = prizePool;
-        FormatTournament = formatTournament;
+        FormatTournamentId = formatTournamentId ;
     }
     
-    public static Tournament New(TournamentId id,  string name, DateTime startDate, CountryId countryId, GameId gameId, int prizePool,string formatTournamet)
-        => new Tournament(id,name, startDate, countryId, gameId, prizePool, formatTournamet);
+    public static Tournament New(TournamentId id,  string name, DateTime startDate, CountryId countryId, GameId gameId, int prizePool,FormatId formatTournamentId)
+        => new Tournament(id,name, startDate, countryId, gameId, prizePool, formatTournamentId);
 
-    public void UpdateDetails(DateTime startDate, int prizePool, string formatTournamet)
+    public void UpdateDetails(DateTime startDate, int prizePool, FormatId formatTournamentId)
     {
         StartDate = startDate.Date;
         PrizePool = prizePool;
-        FormatTournament = formatTournamet; 
+        FormatTournamentId = formatTournamentId; 
     }
 
 }

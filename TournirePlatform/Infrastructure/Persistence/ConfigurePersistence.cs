@@ -1,6 +1,7 @@
 
 using Application.Common.Interfaces.Queries;
 using Application.Common.Interfaces.Repositories;
+using Domain.TournamentFormat;
 using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -54,9 +55,14 @@ public static class ConfigurePersistence
 
         services.AddScoped<TeamMatchRepository>();
         services.AddScoped<ITeamMatchRepository>(provider => provider.GetRequiredService<TeamMatchRepository>());
-
+        services.AddScoped<ITeamMatchQuery>(provider => provider.GetRequiredService<TeamMatchRepository>());
+        
         services.AddScoped<TournamentRepository>();
         services.AddScoped<ITournamentRepository>(provider => provider.GetRequiredService<TournamentRepository>());
         services.AddScoped<ITournamentQueries>(provider => provider.GetRequiredService<TournamentRepository>());
+        
+        services.AddScoped<FormatRepository>();
+        services.AddScoped<IFormatRepository>(provider => provider.GetRequiredService<FormatRepository>());
+        services.AddScoped<IFormatQueries>(provider => provider.GetRequiredService<FormatRepository>());
     }
 }

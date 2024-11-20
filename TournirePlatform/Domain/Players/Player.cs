@@ -18,12 +18,7 @@ public class Player
     public TeamId TeamId { get; private set; }
     public Teams.Team? Team { get; private set; }
     
-    public Player(PlayerId id, string nickName, int rating)
-    {
-        Id = id;
-        NickName = nickName;
-        Rating = rating;
-    }
+    
     
     private Player(PlayerId id, string nickName, int rating, CountryId countryId, GameId gameId, TeamId teamId, DateTime updatedAt)
     {

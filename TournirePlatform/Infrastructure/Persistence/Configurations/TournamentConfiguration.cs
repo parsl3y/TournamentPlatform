@@ -28,10 +28,16 @@ public class TournamentConfiguration : IEntityTypeConfiguration<Tournament>
             .HasConstraintName("FK_Tournament_Game")
             .OnDelete(DeleteBehavior.Restrict);
 
+        builder.HasOne(x => x.FormatTournament)
+            .WithMany()
+            .HasForeignKey(x => x.FormatTournamentId)
+            .HasConstraintName("FK_Tournament_Format")
+            .OnDelete(DeleteBehavior.Restrict);
+
+        
         builder.HasMany(x => x.matchGames)
             .WithOne(x => x.Tournament)
             .HasForeignKey(x => x.TournamentId);
 
-        builder.Property(x => x.FormatTournament).HasMaxLength(225).IsRequired();
     }
 }

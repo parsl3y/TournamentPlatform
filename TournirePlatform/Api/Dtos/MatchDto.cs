@@ -1,6 +1,9 @@
+using System.ComponentModel;
 using System.Security.Cryptography;
+using System.Text.Json.Serialization;
 using Domain.Matches;
-using Domain.TeamsMatch;
+using Domain.TeamsMatchs;
+using Domain.Tournaments;
 
 namespace Api.Dtos;
 
@@ -8,10 +11,10 @@ public record MatchGameDtoCreate(
     Guid? Id,
     string Name,
     Guid GameId,
-    GameDto? Game,
     DateTime StartedAt,
     int MaxTeams,
-    Guid TournamentId
+    int ScoreForGetWinner,
+    Guid? TournamentId
     )
 {
     public static MatchGameDtoCreate FromDomainModel(MatchGame matchGame)
@@ -20,10 +23,10 @@ public record MatchGameDtoCreate(
             Id: matchGame.Id.Value,
             Name: matchGame.Name,
             GameId: matchGame.GameId.Value,
-            Game: matchGame.Game == null ? null : GameDto.FromDomainModel(matchGame.Game),
             StartedAt: matchGame.StartAt,
             MaxTeams: matchGame.MaxTeams,
-            TournamentId: matchGame.TournamentId.Value
+            ScoreForGetWinner: matchGame.ScoreForGetWinner,
+            TournamentId: matchGame.TournamentId == null ? null : matchGame.TournamentId.Value
         );
 }
 
@@ -41,6 +44,17 @@ public record MatchGameDto(
             GameId: matchGame.GameId.Value,
             StartedAt: matchGame.StartAt,
             MaxTeams: matchGame.MaxTeams
+        );
+}
+
+public record MatchGameClearTournamentDto(
+    TournamentId tournamentId
+)
+{
+    public static MatchGameClearTournamentDto FromDomainModel(MatchGame matchGame)
+        => new
+        (
+            tournamentId: matchGame.TournamentId
         );
 }
 

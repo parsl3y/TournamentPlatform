@@ -1,8 +1,7 @@
 using Domain.Countries;
 using Domain.Players;
-using Domain.TeamsMatch;
+using Domain.TeamsMatchs;
 using Domain.Teams;
-using Domain.TeamsMatch;
 using Domain.Tournaments;
 
 namespace Domain.Matches;
@@ -14,29 +13,35 @@ public class MatchGame
     public GameId GameId { get; private set; } 
     public Game.Game Game { get; private set; }
     public DateTime StartAt { get; private set; }
-    public string? Winner { get; private set; }// тут команда яка виграла і потім в team
-    // додавати їй +1 до матчів та до перемог, а нішій команді лише до матчів
+
     public int MaxTeams { get; private set; }
-    public TournamentId? TournamentId { get; private set; }
+    public TournamentId? TournamentId { get; set; }
     public Tournament? Tournament { get; private set; }
     public ICollection<TeamMatch> TeamMatches { get; private set; } = [];
+    public int ScoreForGetWinner { get; private set; }
+    public bool IsFinished { get; private set; }
 
-    private MatchGame(MatchId id, string name, GameId gameId, DateTime startAt, int maxTeams)
+    private MatchGame(MatchId id, string name, GameId gameId, DateTime startAt, int maxTeams, TournamentId? tournamentId, int scoreForGetWinner, bool isFinished)
     {
         Id = id;
         Name = name;
         GameId = gameId;
         StartAt = startAt;
         MaxTeams  = maxTeams;
+        TournamentId = tournamentId;
+        ScoreForGetWinner = scoreForGetWinner;
+        IsFinished = isFinished;
     }
     
-    public static MatchGame New(MatchId id, string name ,GameId gameId, DateTime startAt, int maxTeams)
-        => new MatchGame(id, name, gameId, startAt, maxTeams);
-
-    public void UpdateDetails(string winner)
+    public static MatchGame New(MatchId id, string name, GameId gameId, DateTime startAt, int maxTeams, int scoreForGetWinner,
+        TournamentId? tournamentId)
+        => new (id, name, gameId, startAt, maxTeams, tournamentId,scoreForGetWinner, false);
+    
+    public void MarkAsFinished()
     {
-        Winner = winner;
+        IsFinished = true;
     }
+
 
  
 }

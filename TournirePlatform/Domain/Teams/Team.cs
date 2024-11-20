@@ -1,5 +1,5 @@
 using Domain.Players;
-using Domain.TeamsMatch;
+using Domain.TeamsMatchs;
 using Domain.Teams;
 
 namespace Domain.Teams;

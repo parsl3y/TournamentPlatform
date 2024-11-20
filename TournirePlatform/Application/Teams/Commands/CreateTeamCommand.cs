@@ -18,10 +18,8 @@ public class CreateTeamCommand : IRequest<Result<Team, TeamException>>
     public required int MatchCount { get; set; }
     public required int WinCount { get; set; }
     public required DateTime CreationDate { get; set; }
-
-
-
-
+    
+    
     public class CreateTeamCommandHandler(
         ITeamRepository _teamRepository,
         ITeamQuery _teamQuery)

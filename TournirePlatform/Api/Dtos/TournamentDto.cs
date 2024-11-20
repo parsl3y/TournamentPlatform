@@ -1,5 +1,7 @@
 using Domain.Countries;
+using Domain.TournamentFormat;
 using Domain.Tournaments;
+using Optional;
 
 namespace Api.Dtos;
 
@@ -8,8 +10,9 @@ public record TournamentDto(
     DateTime? startDate,
     CountryId CountryId, 
     int prizePool,
-    string formatTournament,
+    string Format,
     List<MatchGameDtoInTeam> Matches
+
     )
 {
     public static TournamentDto FromDomainModel (Tournament tournament)
@@ -18,18 +21,20 @@ public record TournamentDto(
             Name: tournament.Name,
             startDate: tournament.StartDate,
             CountryId: tournament.CountryId,
+            Format: tournament.FormatTournament.Name,
             prizePool: tournament.PrizePool,
-            formatTournament: tournament.FormatTournament,
             Matches: tournament.matchGames.Select(MatchGameDtoInTeam.FromDomainModel).ToList()
+       
         );
     
 }
 public record TournamentCreateDto(  
     string Name,
     DateTime startDate,
-    CountryId CountryId, 
+    CountryId? CountryId, 
+    GameId? GameId,
     int prizePool,
-    string formatTournament
+    FormatId? FormatId
     )
 {
 
@@ -38,8 +43,9 @@ public record TournamentCreateDto(
            Name: tournament.Name,
            startDate: tournament.StartDate,
            CountryId: tournament.CountryId,
+           GameId: tournament.GameId,
            prizePool: tournament.PrizePool,
-           formatTournament: tournament.FormatTournament
+           FormatId: tournament.FormatTournamentId
         );
     
 }

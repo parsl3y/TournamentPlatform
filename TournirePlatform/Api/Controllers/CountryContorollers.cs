@@ -57,6 +57,20 @@ public class CountryControllers(ISender sender, ICountryQueries countryQueries) 
             c => CountryDto.FromDomainModel(c),
             e => e.ToObjectResult());
     }
+    
+    [HttpDelete("{countryId}")]
+    public async Task<ActionResult<CountryDto>> Delete([FromRoute] Guid countryId, CancellationToken cancellationToken)
+    {
+        var input = new DeleteCountryCommand()
+        {
+            CountryId = countryId
+        };
+        
+        var result = await sender.Send(input, cancellationToken);
+        return result.Match<ActionResult<CountryDto>>(
+            p => CountryDto.FromDomainModel(p),
+            e => e.ToObjectResult());
+    }
 
 
 }

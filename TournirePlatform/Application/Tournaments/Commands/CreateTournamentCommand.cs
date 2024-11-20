@@ -4,6 +4,7 @@ using Application.Common.Interfaces.Repositories;
 using Application.Players.Exceptions;
 using Application.Tournaments.Exceptions;
 using Domain.Countries;
+using Domain.TournamentFormat;
 using Domain.Tournaments;
 using MediatR;
 
@@ -16,7 +17,7 @@ public class CreateTournamentCommand: IRequest<Result<Tournament,TournamentExcep
     public required Guid CountryId { get; set; }
     public required Guid GameId { get; set; }
     public required int PrizePool { get; set; }
-    public required string FormatTournament { get; set; }
+    public required Guid FormatId { get; set; }
 }
 
 public class CreateTournamentCommandHandler : IRequestHandler<CreateTournamentCommand, Result<Tournament, TournamentException>>
@@ -25,15 +26,20 @@ public class CreateTournamentCommandHandler : IRequestHandler<CreateTournamentCo
     private readonly ITournamentQueries _tournamentQueries;
     private readonly ITournamentRepository _tournamentRepository;
     private readonly IGameQueries _gameQueries;
+    private readonly IFormatQueries _formatQueries;
 
     public CreateTournamentCommandHandler(
         ICountryQueries countryQueries,
         ITournamentQueries tournamentQueries,
-        ITournamentRepository tournamentRepository)
+        ITournamentRepository tournamentRepository,
+        IGameQueries gameQueries,
+        IFormatQueries formatQueries)
     {
         _countryQueries = countryQueries;
         _tournamentQueries = tournamentQueries;
         _tournamentRepository = tournamentRepository;
+        _gameQueries = gameQueries;
+        _formatQueries = formatQueries;
     }
     
     public async Task<Result<Tournament, TournamentException>> Handle(CreateTournamentCommand request,
@@ -41,6 +47,7 @@ public class CreateTournamentCommandHandler : IRequestHandler<CreateTournamentCo
     {
         var countryId = new CountryId(request.CountryId);
         var gameId = new GameId(request.GameId);
+        var formatId = new FormatId(request.FormatId);
         
         var country = await _countryQueries.GetById(countryId, cancellationToken);
         return await country.Match(
@@ -50,15 +57,20 @@ public class CreateTournamentCommandHandler : IRequestHandler<CreateTournamentCo
                     return await game.Match(
                         async g =>
                         {
-                            var existingTounament =
-                                await _tournamentQueries.SearchByName(request.Name, cancellationToken);
-                            return await existingTounament.Match(
-                                t => Task.FromResult<Result<Tournament, TournamentException>>(
-                                    new TournamentAlreadyExistsException(t.Id)),
-                                async () => await CreateEntity(request.Name, request.StartDate, c.Id, g.Id,
-                                    request.PrizePool,
-                                    request.FormatTournament, cancellationToken));
-
+                            var format = await _formatQueries.GetById(formatId,cancellationToken);
+                            return await format.Match(
+                                async f =>
+                                {
+                                    var existingTounament =
+                                        await _tournamentQueries.SearchByName(request.Name, cancellationToken);
+                                    return await existingTounament.Match(
+                                        t => Task.FromResult<Result<Tournament, TournamentException>>(
+                                            new TournamentAlreadyExistsException(t.Id)),
+                                        async () => await CreateEntity(request.Name, request.StartDate, c.Id, g.Id,
+                                            request.PrizePool, f.Id, cancellationToken));
+                                },
+                                () => Task.FromResult<Result<Tournament, TournamentException>>(
+                                    new TournamentFormatNotFoundException(formatId)));
                         },
                         () => Task.FromResult<Result<Tournament, TournamentException>>(
                             new TournamentGameNotFoundException(gameId)));
@@ -73,12 +85,12 @@ public class CreateTournamentCommandHandler : IRequestHandler<CreateTournamentCo
         CountryId countryId,
         GameId gameId,
         int prizePool,
-        string formatTournament,
+        FormatId formatId,
         CancellationToken cancellationToken)
     {
         try
         {
-            var entity = new Tournament(TournamentId.New(), name, startDate, countryId, gameId, prizePool, formatTournament);
+            var entity = new Tournament(TournamentId.New(), name, startDate, countryId, gameId, prizePool, formatId);
 
             return await _tournamentRepository.Add(entity, cancellationToken);
         }

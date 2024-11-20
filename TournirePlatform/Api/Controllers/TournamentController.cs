@@ -23,8 +23,8 @@ public class TournamentController(ISender sender, ITournamentQueries _tournament
         return entities.Select(TournamentCreateDto.FromDomainModel).ToList();
     }
 
-    /*[HttpPost]
-    public async Task<ActionResult<TournamentDto>> Create([FromBody]TournamentCreateDto request,
+    [HttpPost]
+    public async Task<ActionResult<TournamentCreateDto>> Create([FromBody]TournamentCreateDto request,
         CancellationToken cancellationToken)
     {
         var input = new CreateTournamentCommand
@@ -32,16 +32,17 @@ public class TournamentController(ISender sender, ITournamentQueries _tournament
             Name = request.Name,
             StartDate = request.startDate,
             CountryId = request.CountryId.Value,
+            GameId = request.GameId.Value,
             PrizePool = request.prizePool,
-            FormatTournament = request.formatTournament
+            FormatId = request.FormatId.Value
         };
         
         var result = await sender.Send(input, cancellationToken);
 
-        return result.Match<ActionResult<TournamentDto>>(
-            t => TournamentDto.FromDomainModel(t),
+        return result.Match<ActionResult<TournamentCreateDto>>(
+            t => TournamentCreateDto.FromDomainModel(t),
             e => e.ToObjectResult());
-    }*/
+    }
 
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<TournamentDto>> Get([FromRoute]Guid id, CancellationToken cancellationToken)

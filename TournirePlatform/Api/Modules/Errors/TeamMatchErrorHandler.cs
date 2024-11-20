@@ -1,5 +1,5 @@
 using Application.TeamMatch.Exceptions;
-using Domain.TeamsMatch;
+using Domain.TeamsMatchs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Modules.Errors;
@@ -16,8 +16,13 @@ public static class TeamMatchErrorHandler
                 TeamNotFoundException => StatusCodes.Status404NotFound,
                 MatchNotFoundException => StatusCodes.Status404NotFound,
                 TeamsMatchNotFoundException => StatusCodes.Status404NotFound,
+                TeamMatchNotFoundException => StatusCodes.Status404NotFound,
                 TeamUknownMatchException => StatusCodes.Status400BadRequest,
                 MatchIsAlreadyFullException => StatusCodes.Status400BadRequest,
+                MatchInTeamMatchNotFoundException => StatusCodes.Status404NotFound,
+                TeamNotInMatchException => StatusCodes.Status400BadRequest,
+                TeamMatchUnknown => StatusCodes.Status400BadRequest,
+                MatchWasFinishedException => StatusCodes.Status409Conflict,
                 _ => throw new NotImplementedException("TeamMatch error handler does not implemented")
             }
         };
