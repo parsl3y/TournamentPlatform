@@ -8,7 +8,7 @@ namespace Api.Controllers;
 [ApiController]
 public class FilesController(ISender sender) : ControllerBase
 {
-    [HttpPost]
+    [HttpPost()]
     public async Task<ActionResult> Upload([FromForm] IFormFile imageFile, CancellationToken cancellationToken)
     {
         var input = new UploadFileCommand

@@ -18,6 +18,7 @@ public static class MatchErrorHandler
                 MatchGameNotFoundException => StatusCodes.Status404NotFound,
                 MatchTournamentNotFoundException => StatusCodes.Status404NotFound,
                 MatchWasFinishedException => StatusCodes.Status500InternalServerError,
+                MatchJoinInTournamentException => StatusCodes.Status500InternalServerError,
                 _ => throw new NotImplementedException("Game error handler does not implemented")
             }
         };

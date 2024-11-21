@@ -21,7 +21,7 @@ public class GamesControllers(ISender sender, IGameQueries gameQueries) : Contro
         return entities.Select(GameDto.FromDomainModel).ToList();
     }
     
-    [HttpPost]
+    [HttpPost("CreateGame")]
     public async Task<ActionResult<GameDto>> Create(
         [FromBody] GameDto request,
         CancellationToken cancellationToken)
@@ -38,7 +38,7 @@ public class GamesControllers(ISender sender, IGameQueries gameQueries) : Contro
             e => e.ToObjectResult());
     }
     
-    [HttpPut]
+    [HttpPut("UpdateGame")]
     public async Task<ActionResult<GameDto>> Update(
         [FromBody] GameDto request,
         CancellationToken cancellationToken)
@@ -56,7 +56,7 @@ public class GamesControllers(ISender sender, IGameQueries gameQueries) : Contro
             e => e.ToObjectResult());
     }
     
-    [HttpDelete("{gameId}")]
+    [HttpDelete("DeleteGame/{gameId}")]
     public async Task<ActionResult<GameDto>> Delete([FromRoute] Guid gameId, CancellationToken cancellationToken)
     {
         var input = new DeleteGameCommand()

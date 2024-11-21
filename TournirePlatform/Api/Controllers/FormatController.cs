@@ -12,14 +12,14 @@ namespace Api.Controllers;
 [ApiController]
 public class FormatController(ISender sender, IFormatQueries _formatQueries) : ControllerBase
 {
-    [HttpGet]
+    [HttpGet("FormatList")]
     public async Task<ActionResult<IEnumerable<FormatDto>>> GetAll(CancellationToken cancellationToken)
     {
         var entities = await _formatQueries.GetAll(cancellationToken);
         return entities.Select(FormatDto.FromDomainModle).ToList();
     }
     
-    [HttpPost]
+    [HttpPost("CreateFormat")]
     public async Task<ActionResult<FormatDto>> Create(
         [FromBody] FormatDto request,
         CancellationToken cancellationToken)
@@ -33,6 +33,20 @@ public class FormatController(ISender sender, IFormatQueries _formatQueries) : C
 
         return result.Match<ActionResult<FormatDto>>(
             f => FormatDto.FromDomainModle(f),
+            e => e.ToObjectResult());
+    }
+
+    [HttpDelete("DeleteFormat")]
+    public async Task<ActionResult<FormatDto>> Delete([FromQuery] Guid formatId, CancellationToken cancellationToken)
+    {
+        var input = new DeleteFormatCommand()
+        {
+        FormatId = formatId
+        };
+        
+        var result = await sender.Send(input, cancellationToken);
+        return result.Match<ActionResult<FormatDto>>(
+        f => FormatDto.FromDomainModle(f),
             e => e.ToObjectResult());
     }
     

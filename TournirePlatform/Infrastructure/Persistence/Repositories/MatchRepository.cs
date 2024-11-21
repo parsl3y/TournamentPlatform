@@ -1,4 +1,5 @@
 using System.Dynamic;
+using System.Text.RegularExpressions;
 using Application.Common.Interfaces.Queries;
 using Application.Common.Interfaces.Repositories;
 using Domain.Matches;
@@ -56,5 +57,12 @@ public class MatchRepository : IMatchRepository, IMatchQueries
         _context.Matches.Update(matchGame);
         await _context.SaveChangesAsync(cancellationToken);
         return matchGame;
+    }
+
+    public async Task<MatchGame> Delete(MatchGame match, CancellationToken cancellationToken)
+    {
+        _context.Matches.Remove(match);
+        await _context.SaveChangesAsync(cancellationToken);
+        return match;
     }
 }

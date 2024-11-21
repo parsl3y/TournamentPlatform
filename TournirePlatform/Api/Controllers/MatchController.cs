@@ -2,6 +2,7 @@ using Api.Dtos;
 using Api.Modules.Errors;
 using Application.Common.Interfaces.Queries;
 using Application.Matches.Commands;
+using Domain.Matches;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +20,7 @@ public class MatchController(ISender sender, IMatchQueries matchQueries) : Contr
         return entities.Select(MatchGameDto.FromDomainModel).ToList();
     }
 
-    [HttpPost]
+    [HttpPost("CreateMatch")]
     public async Task<ActionResult<MatchGameDto>> Create(
         [FromBody] MatchGameDtoCreate request,
         CancellationToken cancellationToken)
@@ -41,7 +42,7 @@ public class MatchController(ISender sender, IMatchQueries matchQueries) : Contr
     }
     
     
-    [HttpPatch("{matchId:guid}/RemoveTournament")] // це як пут,але тільки одне поле змінити
+    [HttpPatch("RemoveTournament/{matchId:guid}")] // це як пут,але тільки для одного поля зміни
     public async Task<IActionResult> RemoveTournamentFromMatch(
         Guid matchId,
         CancellationToken cancellationToken)
@@ -56,5 +57,19 @@ public class MatchController(ISender sender, IMatchQueries matchQueries) : Contr
         return result.Match<IActionResult>(
             match => Ok(MatchGameClearTournamentDto.FromDomainModel(match)),
             error => error.ToObjectResult());
+    }
+
+    [HttpDelete("DeletMatch")]
+    public async Task<ActionResult<MatchGameDto>> Delete([FromQuery] Guid matchId, CancellationToken cancellationToken)
+    {
+        var input = new DeleteMatchCommand()
+        {
+            MatchId = matchId
+        };
+        
+        var result = await sender.Send(input, cancellationToken);
+        return result.Match<ActionResult<MatchGameDto>>(
+            m => MatchGameDto.FromDomainModel(m),
+            e => e.ToObjectResult());
     }
 }

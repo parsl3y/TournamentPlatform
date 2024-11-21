@@ -23,7 +23,7 @@ public class CountryControllers(ISender sender, ICountryQueries countryQueries) 
         return entities.Select(CountryDto.FromDomainModel).ToList();
     }
     
-    [HttpPost]
+    [HttpPost("CreateCountry")]
     public async Task<ActionResult<CountryDto>> Create(
         [FromBody] CountryDto request,
         CancellationToken cancellationToken)
@@ -40,7 +40,7 @@ public class CountryControllers(ISender sender, ICountryQueries countryQueries) 
             e => e.ToObjectResult());
     }
     
-    [HttpPut]
+    [HttpPut("UpdateCountry")]
     public async Task<ActionResult<CountryDto>> Update(
         [FromBody] CountryDto request,
         CancellationToken cancellationToken)
@@ -58,7 +58,7 @@ public class CountryControllers(ISender sender, ICountryQueries countryQueries) 
             e => e.ToObjectResult());
     }
     
-    [HttpDelete("{countryId}")]
+    [HttpDelete("DeleteCoutry/{countryId}")]
     public async Task<ActionResult<CountryDto>> Delete([FromRoute] Guid countryId, CancellationToken cancellationToken)
     {
         var input = new DeleteCountryCommand()

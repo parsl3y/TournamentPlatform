@@ -22,7 +22,7 @@ public class TeamController(ISender sender, ITeamQuery teamQuery) : ControllerBa
         return entities.Select(TeamDto.FromDomainModel).ToList();
     }
 
-    [HttpPost]
+    [HttpPost("CreateTeam")]
     public async Task<ActionResult<TeamDto>> Create(
         [FromBody] TeamDtoCreate request,
         CancellationToken cancellationToken)
@@ -42,7 +42,7 @@ public class TeamController(ISender sender, ITeamQuery teamQuery) : ControllerBa
             e => e.ToObjectResult());
     }
 
-    [HttpPut]
+    [HttpPut("UpdateTeam")]
     public async Task<ActionResult<TeamDto>> Update([FromBody] TeamDto request, CancellationToken cancellationToken)
     {
         var input = new UpdateTeamCommand
@@ -60,7 +60,7 @@ public class TeamController(ISender sender, ITeamQuery teamQuery) : ControllerBa
             e => e.ToObjectResult());
     }
 
-    [HttpDelete("{teamId}")]
+    [HttpDelete("DeleteTeam/{teamId}")]
     public async Task<ActionResult<TeamDto>> Delete([FromRoute] Guid teamId, CancellationToken cancellationToken)
     {
         var input = new DeleteTeamCommand()

@@ -16,14 +16,14 @@ namespace Api.Controllers;
 [ApiController]
 public class TournamentController(ISender sender, ITournamentQueries _tournamentQueries)
 {
-    [HttpGet]
+    [HttpGet("TournamentsList")]
     public async Task<List<TournamentCreateDto>> GetAllTournaments(CancellationToken cancellationToken)
     {
         var entities = await _tournamentQueries.GetAll(cancellationToken);
         return entities.Select(TournamentCreateDto.FromDomainModel).ToList();
     }
 
-    [HttpPost]
+    [HttpPost("CreateTournament")]
     public async Task<ActionResult<TournamentCreateDto>> Create([FromBody]TournamentCreateDto request,
         CancellationToken cancellationToken)
     {
@@ -44,7 +44,7 @@ public class TournamentController(ISender sender, ITournamentQueries _tournament
             e => e.ToObjectResult());
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("GetTournament/{id:guid}")]
     public async Task<ActionResult<TournamentDto>> Get([FromRoute]Guid id, CancellationToken cancellationToken)
     {
         var entity = await _tournamentQueries.GetById(new TournamentId(id), cancellationToken);

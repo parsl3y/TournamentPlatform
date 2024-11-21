@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
 
-[Route("api/addTeamToMatch")]
+[Route("api/TeamMatch")]
 [ApiController]
 public class TeamMatchController : ControllerBase
 {
@@ -24,7 +24,7 @@ public class TeamMatchController : ControllerBase
         _sender = sender;
     }
 
-    [HttpPost]
+    [HttpPost("JoinTeamToMatch")]
     public async Task<ActionResult<TeamMatchCreateDto>> JoinTeamToMatch(
         [FromBody] TeamMatchCreateDto teamMatchCreateDto,
         CancellationToken cancellationToken)
@@ -38,7 +38,7 @@ public class TeamMatchController : ControllerBase
             e => e.ToObjectResult());
     }
     
-    [HttpPost("setWinner")]
+    [HttpPost("SetWinner")]
     public async Task<ActionResult<WinnerResultDto>> SetWinner(
         [FromBody] SetWinnerDto setWinnerDto,
         CancellationToken cancellationToken)
@@ -55,7 +55,8 @@ public class TeamMatchController : ControllerBase
             teamMatch => WinnerResultDto.FromDomainModel(teamMatch),
             exception => exception.ToObjectResult());
     }
-    [HttpPost("addScore")]
+    
+    [HttpPost("AddScore")]
     public async Task<ActionResult<TeamMatchScoreDto>> AddScore(
         [FromBody] AddScoreDto addScoreDto,
         CancellationToken cancellationToken)
@@ -72,8 +73,26 @@ public class TeamMatchController : ControllerBase
             teamMatch => TeamMatchScoreDto.FromDomainModel(teamMatch),
             exception => exception.ToObjectResult());
     }
+    
+    [HttpPost("MinusScore")]
+    public async Task<ActionResult<TeamMatchScoreDto>> AddScore(
+        [FromBody] MinusScoreCommand addScoreDto,
+        CancellationToken cancellationToken)
+    {
+        var command = new MinusScoreCommand
+        {
+            TeamId = addScoreDto.TeamId,
+            MatchId = addScoreDto.MatchId
+        };
 
-    [HttpDelete("{teamMatchId}")]
+        var result = await _sender.Send(command, cancellationToken);
+
+        return result.Match<ActionResult<TeamMatchScoreDto>>(
+            teamMatch => TeamMatchScoreDto.FromDomainModel(teamMatch),
+            exception => exception.ToObjectResult());
+    }
+
+    [HttpDelete("DeleteTeamMatch/{teamMatchId}")]
     public async Task<ActionResult<TeamMatchDeleteDto>> DeleteTeam([FromRoute] Guid teamMatchId,
         CancellationToken cancellationToken)
     {

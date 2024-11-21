@@ -21,14 +21,14 @@ public class PlayerController : ControllerBase
         _playerQueries = playerQueries;
     }
 
-    [HttpGet]
+    [HttpGet("PlayersList")]
     public async Task<ActionResult<IReadOnlyList<PlayerDto>>> GetAll(CancellationToken cancellationToken)
     {
         var entities = await _playerQueries.GetAll(cancellationToken);
         return entities.Select(PlayerDto.FromDomainModel).ToList();
     }
 
-    [HttpPost]
+    [HttpPost("CreatePlayer")]
     public async Task<ActionResult<PlayerDto>> Create([FromBody] PlayerCreateDto request, CancellationToken cancellationToken)
     {
         var input = new CreatePlayerCommand
@@ -46,7 +46,7 @@ public class PlayerController : ControllerBase
             e => e.ToObjectResult());
     }
 
-    [HttpPut]
+    [HttpPut("UpDatePlayer")]
     public async Task<ActionResult<PlayerDto>> Update([FromBody] PlayerDto request, CancellationToken cancellationToken)
     {
         var input = new UpdatePlayerCommand
@@ -63,7 +63,7 @@ public class PlayerController : ControllerBase
             e => e.ToObjectResult());
     }
     
-    [HttpDelete("{playerId}")]
+    [HttpDelete("DeletePlayer/{playerId}")]
     public async Task<ActionResult<PlayerDto>> Delete([FromRoute] Guid playerId, CancellationToken cancellationToken)
     {
         var input = new DeletePlayerCommand()

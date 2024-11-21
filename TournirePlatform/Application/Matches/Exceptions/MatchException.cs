@@ -58,4 +58,9 @@ public class MatchWasFinishedException : MatchException
     }
 }
 
-
+public class MatchJoinInTournamentException : MatchException
+{
+    public MatchJoinInTournamentException(MatchId matchId)
+        : base(matchId, $"match ID {matchId} participates in the tournament. Therefore, deletion is not possible")
+    { }
+}
